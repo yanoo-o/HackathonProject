@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "729895914168",
+    "project_id": "kaagapay-cb644",
+    "storage_bucket": "kaagapay-cb644.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729895914168:android:4a9bcd9e9ce6d33a0bc24d",
+        "android_client_info": {
+          "package_name": "com.prototype.kaagapay.kaagapay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729895914168-88i0q8tpf39a9svs6dem75e0gk3bpa7n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prototype.kaagapay.kaagapay",
+            "certificate_hash": "6782c25760ec0a9e4773982f9d6ab580417c30c5"
+          }
+        },
+        {
+          "client_id": "729895914168-fti2gntgh1h4ea4n35spnsq3s3skq458.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXRPX8vdVgdEPdmDrtskaeGkKXteKA__A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729895914168-fti2gntgh1h4ea4n35spnsq3s3skq458.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
