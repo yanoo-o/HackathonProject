@@ -24,14 +24,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: IF CURRENT USER IS MARITES OR NENA, CHANGE LANDING PAGE
-    if (_currentUser?.displayName == 'Juan dela Cruz') {
-      print("hi!!");
-      //return FarmerPage(user: _currentUser);
-      return MaterialApp(
-        home: Text('Hello World'),
-      );
-    }
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
