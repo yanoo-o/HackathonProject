@@ -174,12 +174,12 @@ class _LoginPageState extends State<LoginPage> {
       alignment: Alignment.center,
       child: ElevatedButton(
           onPressed: () {
-            Navigator.of(context).push(
+            /*Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) =>
                     CreateAccount(),
               )
-            );
+            );*/
           },
           child: Text('Create an account',
               style: TextStyle(
