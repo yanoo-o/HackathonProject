@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kaagapay/Animations/ScaleRoute.dart';
 import 'package:kaagapay/Content/Diseases.dart';
+import 'package:kaagapay/Content/Hospitals.dart';
+import 'package:kaagapay/Content/Covid.dart';
 
 class InfoPage extends StatefulWidget {
   @override
@@ -29,7 +31,7 @@ class _InfoPageState extends State<InfoPage>{
                 ListTile(
                   leading: Icon(Icons.add_location),
                   title: Text('Malapit na Ospital at Klinik'),
-                  onTap: () => {Navigator.of(context).pop()},
+                  onTap: () => {Navigator.push(context, ScaleRoute(page: HospPage()))},
                 ),
                 ListTile(
                   leading: Icon(Icons.notes),
@@ -39,11 +41,11 @@ class _InfoPageState extends State<InfoPage>{
                 ListTile(
                   leading: Icon(Icons.notes),
                   title: Text('Impormasyon sa COVID-19'),
-                  onTap: () => {Navigator.of(context).pop()},
+                  onTap: () => {Navigator.push(context, ScaleRoute(page: CovidPage()))},
                 ),
                 ListTile(
                   leading: Icon(Icons.question_answer),
-                  title: Text('Mga Karaniwang Tanong'),
+                  title: Text('Mga Karaniwang Tanong (FAQs)'),
                   onTap: () => {Navigator.of(context).pop()},
                 ),
               ],
