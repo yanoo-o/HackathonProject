@@ -172,8 +172,15 @@ class _LoginPageState extends State<LoginPage> {
   Widget createAccButton() {
     return Container(
       alignment: Alignment.center,
-      child: TextButton(
-          onPressed: () => print('create acc'),
+      child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    CreateAccount(),
+              )
+            );
+          },
           child: Text('Create an account',
               style: TextStyle(
                   color: Color(0xff3b7dd8),
