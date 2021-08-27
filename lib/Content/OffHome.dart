@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kaagapay/Content/Info.dart';
 import 'package:kaagapay/Animations/ScaleRoute.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kommunicate_flutter/kommunicate_flutter.dart';
 
 
 void main() => runApp(new Kaagapay());
@@ -127,7 +128,19 @@ class _OffHomeState extends State<OffHome> {
                 SizedBox(height: 10),
                 SizedBox(height: 10),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: (){
+                    dynamic conversationObject = {
+                      'appId': '161f124570ae7fbb9a80a249b9f432e53',// The [APP_ID](https://dashboard.kommunicate.io/settings/install) obtained from kommunicate dashboard.
+                    };
+
+                    KommunicateFlutterPlugin.buildConversation(conversationObject)
+                        .then((clientConversationId) {
+                      print("Conversation builder success : " + clientConversationId.toString());
+                    }).catchError((error) {
+                      print("Conversation builder error : " + error.toString());
+                    });
+
+                  },
                   style: ButtonStyle(
                       padding:
                       MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(30)),
