@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:kaagapay/auth/fire_auth.dart';
 import 'package:kaagapay/auth/validator.dart';
+import 'package:kaagapay/CreateAccount.dart';
+import 'package:kaagapay/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -22,13 +24,13 @@ class _LoginPageState extends State<LoginPage> {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     User? user = FirebaseAuth.instance.currentUser;
 
-    /*if(user!= null) {
+    if(user!= null) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => HomePage(user:user),
         )
       );
-    }*/
+    }
     return firebaseApp;
   }
 
@@ -48,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 BoxShadow(
                     color: Colors.black12, blurRadius: 6, offset: Offset(0, 2))
               ]),
-          height: 60,
+          height: 40,
           child: TextFormField(
             keyboardType: TextInputType.emailAddress,
             controller: _emailTextController,
@@ -57,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             validator: (value) => Validator.validateEmail(email: value),
             decoration: InputDecoration(
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
+                contentPadding: EdgeInsets.only(top: 8),
                 prefixIcon: Icon(Icons.email, color: Color(0xff64a1f4)),
                 hintText: 'Email Address',
                 hintStyle: TextStyle(color: Colors.black45) //5:25 right
@@ -84,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 BoxShadow(
                     color: Colors.black12, blurRadius: 6, offset: Offset(0, 2))
               ]),
-          height: 60,
+          height: 40,
           child: TextFormField(
             controller: _passwordTextController,
             focusNode: _focusPassword,
@@ -93,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
+                contentPadding: EdgeInsets.only(top: 8),
                 prefixIcon: Icon(Icons.lock, color: Color(0xff64a1f4)),
                 hintText: 'Password',
                 hintStyle: TextStyle(color: Colors.black45),
@@ -122,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget loginButton() {
     return Container(
-        padding: EdgeInsets.symmetric(vertical: 25),
+        padding: EdgeInsets.symmetric(vertical: 2),
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () async {
@@ -140,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                 _isProcessing = false;
               });
 
-              /*if (user != null) {
+              if (user != null) {
                 Navigator.of(context)
                     .pushReplacement(
                   MaterialPageRoute(
@@ -148,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                         HomePage(user: user),
                   ),
                 );
-              }*/
+              }
             }
           },
           style: ElevatedButton.styleFrom(
@@ -156,11 +158,11 @@ class _LoginPageState extends State<LoginPage> {
             onPrimary: Color(0xffbfd6f6),
             shadowColor: Colors.black12,
             elevation: 5,
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(3),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           ),
-          child: Text('Sign In',
+          child: Text('SIGN IN',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -171,17 +173,27 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget createAccButton() {
     return Container(
-      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(vertical: 2),
+      width: double.infinity,
       child: ElevatedButton(
           onPressed: () {
-            /*Navigator.of(context).push(
+            Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) =>
                     CreateAccount(),
               )
-            );*/
+            );
           },
-          child: Text('Create an account',
+          style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            onPrimary: Color(0xffbfd6f6),
+            shadowColor: Colors.black12,
+            elevation: 5,
+            padding: EdgeInsets.all(3),
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          ),
+          child: Text('CREATE AN ACCOUNT',
               style: TextStyle(
                   color: Color(0xff3b7dd8),
                   fontSize: 18,
@@ -191,10 +203,27 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget offlineAccessButton() {
     return Container(
-      alignment: Alignment.center,
-      child: TextButton(
-          onPressed: () => print('create acc'),
-          child: Text('Access Offline',
+      padding: EdgeInsets.symmetric(vertical: 2),
+      width: double.infinity,
+      child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) =>
+                      CreateAccount(),
+                )
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            onPrimary: Color(0xffbfd6f6),
+            shadowColor: Colors.black12,
+            elevation: 5,
+            padding: EdgeInsets.all(3),
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          ),
+          child: Text('ACCESS OFFLINE',
               style: TextStyle(
                   color: Color(0xff3b7dd8),
                   fontSize: 18,
@@ -235,11 +264,14 @@ class _LoginPageState extends State<LoginPage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            Image.asset('assets/images/kaagapay_logo.png',
+                            width: double.infinity,
+                            height: 100),
                             Text(
                               'KAAGAPAY',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 32,
+                                fontSize: 26,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -271,51 +303,6 @@ class _LoginPageState extends State<LoginPage> {
             );
           },
         )
-        /*body: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle.light,
-          child: GestureDetector(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0xff3b7dd8),
-                              Color(0xff4a91f2),
-                              Color(0xff64a1f4),
-                              Color(0xffbfd6f6),
-                            ])),
-                    child: SingleChildScrollView(
-                        physics: AlwaysScrollableScrollPhysics(),
-                        padding:
-                        EdgeInsets.symmetric(horizontal: 25, vertical: 120),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'KAAGAPAY',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            emailTextField(),
-                            passwordTextField(),
-                            forgotPwButton(),
-                            loginButton(),
-                            createAccButton(),
-                          ],
-                        )))
-              ],
-            ),
-          ),
-        ),*/
       )
     ); // Scaffold
   }
