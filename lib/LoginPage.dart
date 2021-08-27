@@ -182,6 +182,19 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  Widget offlineAccessButton() {
+    return Container(
+      alignment: Alignment.center,
+      child: TextButton(
+          onPressed: () => print('create acc'),
+          child: Text('Access Offline',
+              style: TextStyle(
+                  color: Color(0xff3b7dd8),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700))),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -241,6 +254,7 @@ class _LoginPageState extends State<LoginPage> {
                                         ],
                                       ),
                                   createAccButton(),
+                                  offlineAccessButton(),
                                 ]
                               )
                             ),
