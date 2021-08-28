@@ -260,13 +260,13 @@ class _LoginPageState extends State<LoginPage> {
                     child: SingleChildScrollView(
                         physics: AlwaysScrollableScrollPhysics(),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 25, vertical: 120),
+                        EdgeInsets.symmetric(horizontal: 25, vertical: 60),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Image.asset('assets/images/kaagapay_logo.png',
                             width: double.infinity,
-                            height: 100),
+                            height: 150),
                             Text(
                               'KAAGAPAY',
                               style: TextStyle(

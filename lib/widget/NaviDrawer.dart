@@ -24,84 +24,13 @@ class _NaviDrawerState extends State<NaviDrawer> {
 
   Widget build(BuildContext context) {
     if (_currentUser != null) {
-      if(_currentUser?.displayName == null) {
-        return Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              UserAccountsDrawerHeader(
-                accountName:
-                Text( 'Hello, Patient!',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25
-                    )),
-                accountEmail:
-                Text( '${_currentUser?.email}',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.blueGrey,
-                  child: Image.network('https://icon-icons.com/icon/person/110935'),
-                ),
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.white,
-                          Color(0xffbfd6f6),
-                          Color(0xff64a1f4),
-                          Color(0xff3b7dd8),
-                        ])
-                ),
-              ),
-              ListTile(
-                title: Text('PROFILE', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                onTap: () => {Navigator.of(context).pop()},
-              ),
-              ListTile(
-                title: Text('PRESCRIPTIONS', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                onTap: () => {Navigator.of(context).pop()},
-              ),
-              ListTile(
-                title: Text('ACTIVITY', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                onTap: () => {Navigator.of(context).pop()},
-              ),
-              ListTile(
-                title: Text('SETTINGS', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                onTap: () => {Navigator.of(context).pop()},
-              ),
-              ListTile(
-                title: Text('REWARDS', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                onTap: () => {Navigator.of(context).pop()},
-              ),
-              ListTile(
-                title: Text('LOG OUT', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                onTap: () async{
-                  setState((){
-                    _isSigningOut = true;
-                  });
-                  await FirebaseAuth.instance.signOut();
-                  setState(() {
-                    _isSigningOut = false;
-                  });
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => LoginPage(),)
-                  );
-                },
-              ),
-            ],
-          ),
-        );
-      };
       return Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
                 accountName:
-                  Text( 'Hello, ${_currentUser?.displayName}',
+                  Text( 'How are you?',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 25
@@ -167,7 +96,11 @@ class _NaviDrawerState extends State<NaviDrawer> {
           ),
           ListTile(
             title: Text('PROFILE', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              /*Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => UserProfile(),)
+              );*/
+            },
           ),
           ListTile(
             title: Text('PRESCRIPTIONS', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),

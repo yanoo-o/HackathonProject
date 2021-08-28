@@ -5,27 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kommunicate_flutter/kommunicate_flutter.dart';
 
 
-void main() => runApp(new Kaagapay());
-
-class Kaagapay extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'KAAGAPAY HOME',
-      theme: new ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
-      home: OffHome(),
-    );
-  }
-}
 class OffHome extends StatefulWidget {
   @override
   _OffHomeState createState() => _OffHomeState();
 }
 
 class _OffHomeState extends State<OffHome> {
+  final _scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,7 +42,7 @@ class _OffHomeState extends State<OffHome> {
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 20),
+                SizedBox(height: 30),
                 Text(
                   'PAUNAWA',
                   style: TextStyle(
@@ -89,44 +76,49 @@ class _OffHomeState extends State<OffHome> {
                   child: Expanded(
 
                     //contains a single child which is scrollable
-                    child: SingleChildScrollView(
+                    child: Scrollbar(
+                      isAlwaysShown: true,
+                      controller: _scrollController,
+                      child: SingleChildScrollView(
 
-                      //for horizontal scrolling
-                      scrollDirection: Axis.vertical,
+                        //for horizontal scrolling
+                        //scrollDirection: Axis.vertical,
+                        controller: _scrollController,
 
-                      child: Text(
-                            "MGA PAALALA MULA SA DEPARTMENT OF HEALTH:\n\n"
-                                "Panatilihin ang pagsusuot ng Face Mask tuwing lalabas ng bahay. Magdala ng alcohol at huwag "
-                                "makihalubilo sa lugar na maraming tao.\n\n"
-                                "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna.\n\n"
-                                "Kung kayo ay may mga kasakitan tulad ng HIKA, ALTAPRESYON, PULMONYA, AT IBA PA, o kaya naman"
-                                "kayo ay may edad 60 pataas, maaaring pumunta sa inyong barangay upang magparehistro sa bakuna "
-                                "kontra COVID-19.\n\n"
-                                "Para sa kaalaman ng lahat, ang ating bayan ay nakapasailalim sa General Community Quarantine "
-                                "o GCQ kaya naman ipinagbabawal muna ang malakihang pagtitipon. Ang mahuhuli ay maaaring MAKULONG"
-                                "o pagmumultahin ng halagang P5,000.00 o limang libo.\n"
-                                "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
-                                "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
-                                "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
-                                "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna\n"
-                                "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
-                                "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna\n"
+                        child: Text(
+                          "MGA PAALALA MULA SA DEPARTMENT OF HEALTH:\n\n"
+                              "Panatilihin ang pagsusuot ng Face Mask tuwing lalabas ng bahay. Magdala ng alcohol at huwag "
+                              "makihalubilo sa lugar na maraming tao.\n\n"
+                              "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna.\n\n"
+                              "Kung kayo ay may mga kasakitan tulad ng HIKA, ALTAPRESYON, PULMONYA, AT IBA PA, o kaya naman"
+                              "kayo ay may edad 60 pataas, maaaring pumunta sa inyong barangay upang magparehistro sa bakuna "
+                              "kontra COVID-19.\n\n"
+                              "Para sa kaalaman ng lahat, ang ating bayan ay nakapasailalim sa General Community Quarantine "
+                              "o GCQ kaya naman ipinagbabawal muna ang malakihang pagtitipon. Ang mahuhuli ay maaaring MAKULONG"
+                              "o pagmumultahin ng halagang P5,000.00 o limang libo.\n"
+                              "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
+                              "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
+                              "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
+                              "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna\n"
+                              "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna"
+                              "Lahat ng batang may edad 3 pababa ay kailangang dalhin sa health center para sa pagbabakuna\n"
 
 
-                        ,
-                        style: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                          letterSpacing: 3,
-                          wordSpacing: 2,
-                          height: 1.5
+                          ,
+                          style: GoogleFonts.roboto(
+                              color: Colors.black,
+                              fontSize: 15.0,
+                              letterSpacing: 3,
+                              wordSpacing: 2,
+                              height: 1.5
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
                 SizedBox(height: 10),
-                SizedBox(height: 10),
+
                 ElevatedButton(
                   onPressed: (){
                     dynamic conversationObject = {
@@ -143,7 +135,7 @@ class _OffHomeState extends State<OffHome> {
                   },
                   style: ButtonStyle(
                       padding:
-                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(30)),
+                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
                       fixedSize:
                       MaterialStateProperty.all<Size>(Size.fromWidth(300)),
                       foregroundColor:
